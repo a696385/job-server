@@ -5,7 +5,7 @@
 
 var JobServer = require("../");
 
-var jobWorker = JobServer.createWorker({port: 8080});
+var jobWorker = JobServer.createWorker({port: 8080, maxqps: 3});
 jobWorker.on('error', function(err){
 	console.error("Worker: ", err);
 });

@@ -12,6 +12,7 @@
   "dependence": {},
   "dependencies": {
     "ws": "~0.4.27",
-    "node-uuid": "~1.4.0"
+    "node-uuid": "~1.4.0",
+    "usage": "~0.3.8"
   }
 }
