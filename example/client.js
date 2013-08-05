@@ -19,4 +19,4 @@ setInterval(function(){
 			console.log(result);
 		}
 	});
-}, 1000);
+}, 100);
