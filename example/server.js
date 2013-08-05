@@ -26,6 +26,11 @@ var readableFileSize = function(size) {
     return size.toFixed(1) + ' ' + units[i];
 };
 
+var formatString = function(s, len){
+    while (s.length < len) s = ' ' + s;
+    return s;
+};
+
 var printInfo = function(){
 
     usage.lookup(pid, function(err, result) {
@@ -41,8 +46,8 @@ var printInfo = function(){
         for(var i = 0; i < workers.length; i++){
             var worker = workers[i];
             if (!worker.isExecutable) continue;
-            cli.move(5 + workersLines,0).color('cyan').write(worker.id + ': ').resetColor().write('' + worker.workedCount + '-' + worker.workerTotalCount + '   ').color('green').write('' + (worker.workerTotalCount * 100 / jobServer.store.totalJobs).toFixed(2) + '%').resetColor();
-            if (worker.isBlocked){
+            cli.move(5 + workersLines,0).color('cyan').write(worker.id + ': ').resetColor().write(formatString('' + worker.workedCount + '-' + worker.workerTotalCount + '   '), 14).color('green').write(formatString('' + (worker.workerTotalCount * 100 / jobServer.store.totalJobs).toFixed(2) + '%', 10)).resetColor();
+            if (worker.isBloked){
                 cli.color('red').write(' [BLOKED]').resetColor();
             } else {
                 cli.color('green').write(' [  OK  ]').resetColor();    
