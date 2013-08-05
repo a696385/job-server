@@ -58,7 +58,7 @@ var printInfo = function(){
             move(7 + workersLines, 0).color('magenta').write("Memory Usage: ").resetColor().write(readableFileSize(result.memory)).resetColor();
 
         if (lastError !== ""){
-            cli.move(8 + workersLines, 0).color('red').write(lastError);
+            cli.move(8 + workersLines, 0).color('red').write(lastError).resetColor();
             lastError = "";
         } else{
             cli.move(8 + workersLines, 0).clearLine();
