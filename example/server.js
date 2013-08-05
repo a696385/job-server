@@ -42,6 +42,11 @@ var printInfo = function(){
             var worker = workers[i];
             if (!worker.isExecutable) continue;
             cli.move(5 + workersLines,0).color('cyan').write(worker.id + ': ').resetColor().write('' + worker.workedCount + '-' + worker.workerTotalCount + '   ').color('green').write('' + (worker.workerTotalCount * 100 / jobServer.store.totalJobs).toFixed(2) + '%').resetColor();
+            if (worker.isBlocked){
+                cli.color('red').write(' [BLOKED]').resetColor();
+            } else {
+                cli.color('green').write(' [  OK  ]').resetColor();    
+            }
             workersLines++;
         }
 
