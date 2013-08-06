@@ -47,8 +47,8 @@ var printInfo = function(){
             var worker = workers[i];
             if (!worker.isExecutable) continue;
             cli.move(5 + workersLines,0).color('cyan').write(worker.id + ': ').resetColor().write(formatString('' + worker.workedCount + '-' + worker.workerTotalCount + '   ', 14)).color('green').write(formatString('' + (worker.workerTotalCount * 100 / jobServer.store.totalJobs).toFixed(2) + '%', 10)).resetColor();
-            if (worker.isBloked){
-                cli.color('red').write(' [BLOKED]').resetColor();
+            if (worker.isBlocked){
+                cli.color('red').write(' [BLOCKED]').resetColor();
             } else {
                 cli.color('green').write(' [  OK  ]').resetColor();    
             }
